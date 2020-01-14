@@ -1,0 +1,19 @@
+[user]
+	name = duck.
+	email = me@duck.me.uk
+	signingkey = 62BBD298
+
+[commit]
+        gpgsign = true
+[core]
+	excludesfile = /Users/duck/.gitignore_global
+	autocrlf = input
+[include]
+        path = .gitconfig.local
+[gpg]
+	program = gpg2
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

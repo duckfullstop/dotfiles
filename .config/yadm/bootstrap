@@ -1,0 +1,37 @@
+#!/bin/sh
+
+system_type=$(uname -s)
+
+echo "Bootstrapping for system type $system_type"
+
+if [ "$system_type" = "Darwin" ]; then
+  echo "Running Darwin specific steps:"
+  # install homebrew if it's missing
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  if [ -f "$HOME/.Brewfile" ]; then
+    echo "Updating homebrew bundle"
+    brew bundle --global
+  fi
+
+  if [ -d "$HOME/.iterm2" ]; then
+    echo "Setting iTerm preference folder"
+    defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
+    defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+  fi
+
+  # Change current shell to zsh
+  echo "Setting ZSH as default system shell"
+  shell_path="$(brew --prefix)/bin/zsh"
+  if ! grep "$shell_path" /etc/shells > /dev/null 2>&1 ; then
+   sudo bash -c "echo $shell_path >> /etc/shells"
+  fi
+  [ $SHELL != $shell_path ] && chsh -s "$shell_path"
+
+fi
+
+echo "Updating the yadm repo origin URL to use SSH"
+yadm remote set-url origin "git@github.com:duckfullstop/dotfiles.git"
