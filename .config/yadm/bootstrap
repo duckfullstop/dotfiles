@@ -22,6 +22,9 @@ if [ "$system_type" = "Darwin" ]; then
     defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
     defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
   fi
+  
+  echo "Linking OpenSC to static position"
+  sudo ln `brew list opensc | grep lib/opensc-pkcs11.so` /usr/local/lib/opensc-pkcs11.so
 
   # Change current shell to zsh
   echo "Setting ZSH as default system shell"
@@ -31,6 +34,12 @@ if [ "$system_type" = "Darwin" ]; then
   fi
   [ $SHELL != $shell_path ] && chsh -s "$shell_path"
 
+fi
+
+if [ ! -e ~/.oh-my-zsh ]; then
+  echo "Installing oh-my-zsh"
+  git clone --depth 1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+  chmod +x ~/.oh-my-zsh/oh-my-zsh.sh
 fi
 
 echo "Updating the yadm repo origin URL to use SSH"

@@ -13,14 +13,14 @@ cask "font-source-code-pro-for-powerline"
 # browsers / chat
 cask "discord"
 cask "firefox-beta"
-cask "google-chrome"
 cask "signal"
+cask "textual"
 
 # b00ks
 cask "calibre"
 
 # 3d printer stuff
-cask "ultimaker-cura"
+cask "prusaslicer"
 
 # utilities - yubikey specific
 brew "ykpers"
@@ -34,14 +34,16 @@ cask "android-platform-tools"
 
 # utilities
 cask "cyberduck"
-cask "google-drive-file-stream"
 cask "gpg-suite"
 brew "iperf3"
 cask "iterm2"
 cask "keka"
 cask "kekadefaultapp"
 cask "keybase"
+brew "mosh"
 cask "nextcloud"
+brew "nmap"
+cask "onedrive"
 brew "speedtest-cli"
 cask "suspicious-package"
 brew "task"
@@ -51,18 +53,23 @@ cask "transmit"
 cask "virt-manager"
 brew "wget"
 brew "wireguard-tools"
+brew "yadm"
 brew "youtube-dl"
+brew "zsh"
+brew "zsh-completions"
 
 # media
-cask "plex-media-player"
+brew "get_iplayer"
 cask "iina"
+cask "plex-media-player"
 cask "spotify"
+brew "streamlink"
 cask "swinsian"
 cask "vlc"
 
 # development stuff
-cask "visual-studio-code"
 brew "git"
+brew "git-crypt"
 brew "git-flow"
 brew "git-lfs"
 brew "go"
@@ -75,10 +82,10 @@ cask "pycharm"
 brew "python"
 cask "sequel-pro-nightly"
 cask "sourcetree"
+cask "visual-studio-code"
 cask "wireshark"
 
 # virt & ops
-brew "coreos-ct"
 cask "docker"
 brew "kubectl"
 cask "virtualbox"
