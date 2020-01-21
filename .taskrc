@@ -6,9 +6,9 @@ rc.dateformat=d/m/y
 
 default.command=next -BLOCKED
 verbose=blank,label
-taskd.certificate=\/Users\/duck\/.task\/duck.cert.pem
-taskd.key=\/Users\/duck\/.task\/duck.key.pem
-taskd.ca=\/Users\/duck\/.task\/ca.cert.pem
+taskd.certificate=~/.task/cert.pem
+taskd.key=~/.task/key.pem
+taskd.ca=~/.task/ca.cert.pem
 taskd.server=tasks.duck.moe:53589
 taskd.credentials=Labcoats\/duck\/43a644d3-3e56-417b-b14e-2fd788e5a600
 taskd.trust=ignore hostname
