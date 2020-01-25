@@ -26,9 +26,9 @@ if [ "$system_type" = "Darwin" ]; then
   echo "Linking OpenSC to static position"
   sudo ln `brew list opensc | grep lib/opensc-pkcs11.so` /usr/local/lib/opensc-pkcs11.so
 
-  # Change current shell to zsh
-  echo "Setting ZSH as default system shell"
-  shell_path="$(brew --prefix)/bin/zsh"
+  # Change current shell to fish
+  echo "Setting fish as default system shell"
+  shell_path="$(brew --prefix)/bin/fish"
   if ! grep "$shell_path" /etc/shells > /dev/null 2>&1 ; then
    sudo bash -c "echo $shell_path >> /etc/shells"
   fi
@@ -36,11 +36,13 @@ if [ "$system_type" = "Darwin" ]; then
 
 fi
 
-if [ ! -e ~/.oh-my-zsh ]; then
-  echo "Installing oh-my-zsh"
-  git clone --depth 1 git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-  chmod +x ~/.oh-my-zsh/oh-my-zsh.sh
+if [ ! -e ~/.config/omf ]; then
+  echo "Installing oh-my-fish"
+  curl -L https://get.oh-my.fish | fish
 fi
+
+echo "Updating oh-my-fish packages"
+fish -c omf install
 
 echo "Updating the yadm repo origin URL to use SSH"
 yadm remote set-url origin "git@github.com:duckfullstop/dotfiles.git"
