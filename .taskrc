@@ -11,4 +11,4 @@ taskd.key=~/.task/key.pem
 taskd.ca=~/.task/ca.cert.pem
 taskd.server=tasks.duck.moe:53589
 taskd.credentials=Labcoats\/duck\/43a644d3-3e56-417b-b14e-2fd788e5a600
-taskd.trust=ignore hostname
+# taskd.trust=ignore hostname

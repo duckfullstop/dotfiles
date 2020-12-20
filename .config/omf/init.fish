@@ -9,3 +9,9 @@ yubi
 
 # Set golang path
 set -xg GOPATH $HOME/Documents/Workbench/go
+
+# Initialize nix
+if test -e $HOME/.nix-profile/etc/profile.d/nix.sh
+  fenv source $HOME/.nix-profile/etc/profile.d/nix.sh
+end
+
