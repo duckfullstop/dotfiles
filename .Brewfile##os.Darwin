@@ -5,7 +5,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "jeffreywildman/homebrew-virt-manager"
-
+tap "fluxcd/tap/flux"
 
 # fonts
 cask "font-source-code-pro-for-powerline"
@@ -88,5 +88,7 @@ cask "wireshark"
 # virt & ops
 cask "docker"
 brew "kubectl"
+brew "kubeseal"
 cask "virtualbox"
 cask "virtualbox-extension-pack"
+brew "flux"
